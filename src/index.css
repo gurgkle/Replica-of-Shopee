@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-brand: #ee4d2d;
+  --color-brand-hover: #f94e2f;
+  --color-brand-dark: #b22204;
+  --color-brand-tint: #fff5f3;
+  --color-brand-track: #fcd8d4;
+  --color-accent: #ffc107;
+  --color-ink: #222222;
+  --color-ink-muted: #757575;
+  --color-canvas: #f5f5f5;
+  --color-border-hairline: #e8e8e8;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #f5f5f5;
+    color: #222222;
+    scroll-behavior: smooth;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ticket-cut scalloped voucher edge accent */
+.voucher-ticket {
+  position: relative;
+}
+.voucher-ticket::before,
+.voucher-ticket::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border: 1px dashed #ee4d2d;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.voucher-ticket::before {
+  left: -6px;
+}
+.voucher-ticket::after {
+  right: -6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
